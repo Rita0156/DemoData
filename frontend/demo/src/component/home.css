@@ -1,0 +1,13 @@
+.nav{
+    display: flex;
+    width: 98%;
+    margin: auto;
+}
+.sub{
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+    width: 200px;
+    height: 200px;
+    padding-top: 20px;
+    margin: auto;
+    margin-bottom: 15px;
+}
