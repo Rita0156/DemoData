@@ -71,48 +71,71 @@ app.use(cors())
    // const data=await DemoModal.find()
     const page=req.query.page*1|| 1;
     const limit=req.query.limit*1 || 6;
+    const sort=req.query.sort
+    const name=req.query.name
     const skip=(page-1)*limit
     //const queryFunc=;
-    const result= await DemoModal.find().skip(skip).limit(limit)
-    res.json(result)
- })
-
- app.get("/asd",async(req,res)=>{
-    const page=req.query.page*1|| 1;
-    const limit=req.query.limit*1 || 6;
-    const skip=(page-1)*limit
-     var mysort={price:1}
+    if(sort=="asd"){
+      var mysort={price:1}
+     
+      const result= await  DemoModal.find().sort(mysort).skip(skip).limit(limit)
+ 
+      res.json(result)
+    }
+    else if(sort=="dsd"){
+      var mysort={price:-1}
      
      const result= await  DemoModal.find().sort(mysort).skip(skip).limit(limit)
 
      res.json(result)
+    }
+    if(name){
+      const result= await DemoModal.find({name:name
+            
+      })
+      res.json(result);
+    }
+
+    const result= await DemoModal.find().skip(skip).limit(limit)
+    res.json(result)
  })
 
- app.get("/dsd",async(req,res)=>{
-    const page=req.query.page*1|| 1;
-    const limit=req.query.limit*1 || 6;
-    const skip=(page-1)*limit
-   // var mysort={price:-1}
-    var mysort={price:-1}
+//  app.get("/asd",async(req,res)=>{
+//     const page=req.query.page*1|| 1;
+//     const limit=req.query.limit*1 || 6;
+//     const skip=(page-1)*limit
+//      var mysort={price:1}
      
-    const result= await  DemoModal.find().sort(mysort).skip(skip).limit(limit)
+//      const result= await  DemoModal.find().sort(mysort).skip(skip).limit(limit)
 
-    res.json(result)
-})
+//      res.json(result)
+//  })
 
-app.get("/search",async (req,res)=>{
-    console.log("inside query")
+//  app.get("/dsd",async(req,res)=>{
+//     const page=req.query.page*1|| 1;
+//     const limit=req.query.limit*1 || 6;
+//     const skip=(page-1)*limit
+//    // var mysort={price:-1}
+//     var mysort={price:-1}
+     
+//     const result= await  DemoModal.find().sort(mysort).skip(skip).limit(limit)
+//   console.log(result,"dsd result");
+//     res.json(result)
+// })
+
+// app.get("/search",async (req,res)=>{
+//     console.log("inside query")
     
-    const name=req.query.name
-    console.log(name)
-    //const skip=(page-1)*limit
+//     const name=req.query.name
+//     console.log(name)
+//     //const skip=(page-1)*limit
     
-        const result= await DemoModal.find({name:name
+//         const result= await DemoModal.find({name:name
             
-        })
-        res.json(result);
+//         })
+//         res.json(result);
     
-})
+// })
 
 
 //  var mysort = { name: 1 };
