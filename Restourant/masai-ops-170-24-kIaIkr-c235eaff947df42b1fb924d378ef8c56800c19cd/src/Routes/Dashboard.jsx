@@ -37,8 +37,8 @@ function Dashboard() {
       setFilter(e.target.value)
       Data(filtercompo)
    }
-   function handalPageChange(){
-    
+   function handalPageChange(page){
+      setPage(page)
    }
   useEffect(()=>{
        Data(filtercompo)
